@@ -1,0 +1,28 @@
+@function translate-media-condition($c) {
+  $conditionsMap: (
+    "phone": "(max-width: #{$tablet - 1px})",
+    "tablet": "(min-width: #{$tablet}) and (max-width: #{$sm-desktop - 1px})",
+    "sm-desktop":
+      "(min-width: #{$sm-desktop}) and (max-width: #{$desktop - 1px})",
+    "desktop": "(min-width: #{$desktop})",
+  );
+  @return map-get($conditionsMap, $c);
+}
+
+@mixin media($args...) {
+  $result: "";
+  @each $arg in $args {
+    $result: translate-media-condition($arg);
+    @media #{$result} {
+      @content;
+    }
+  }
+}
+
+/*
+ * Spacing uses 8px space maker strategy (like material design)
+ * 1 size = 8px
+ */
+@function spacing($size: 1) {
+  @return $size * 8px;
+}
