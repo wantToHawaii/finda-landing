@@ -21,7 +21,9 @@
 
     @include backgroundPosition();
     .wave_white {
-      @include backgroundPosition();
+      position: relative;
+      z-index: 1;
+      top: 8px;
     }
     .wave_blue {
       @include backgroundPosition();

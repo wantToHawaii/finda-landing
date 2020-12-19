@@ -1,0 +1,170 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+.footer {
+  background-color: $colorLightBlue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 720px;
+  padding-top: spacing(8);
+
+  @include media("tablet", "sm-desktop", "desktop") {
+    padding-top: spacing(40);
+    padding-bottom: spacing(7);
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    padding-left: spacing(2);
+    padding-right: spacing(2);
+
+    @include media("tablet", "sm-desktop", "desktop") {
+      max-width: $maxContentWidth;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .title {
+        font-size: 48px;
+        font-weight: 500;
+        line-height: 66px;
+        margin: 0;
+        transition: all 150ms;
+        width: 330px;
+
+        @include media("tablet", "sm-desktop", "desktop") {
+          font-size: 72px;
+          line-height: 82px;
+          width: 490px;
+        }
+
+        span:first-child {
+          color: $colorPrimary;
+        }
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: spacing(5);
+        margin-left: spacing(-2);
+        margin-right: spacing(-2);
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+
+        @include media("tablet", "sm-desktop", "desktop") {
+          margin-top: spacing(7);
+        }
+
+        .button {
+          flex: 0 0 50%;
+          max-width: 176px;
+          width: 100%;
+          margin-left: spacing(1/2);
+          margin-right: spacing(1/2);
+
+          @include media("tablet", "sm-desktop", "desktop") {
+            margin-left: spacing(2);
+            margin-right: spacing(2);
+          }
+        }
+      }
+
+      .socials {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 304px;
+        margin-top: spacing(5);
+
+        @include media("tablet", "sm-desktop", "desktop") {
+          margin-top: spacing(7);
+        }
+
+        li {
+          & + li {
+            margin-left: spacing(4);
+          }
+
+          a {
+            img {
+              max-width: 40px;
+            }
+          }
+        }
+      }
+
+      .nav {
+        margin-left: spacing(-2);
+        margin-right: spacing(-2);
+        margin-top: spacing(5);
+        max-width: 656px;
+        width: 100%;
+        text-align: center;
+
+        @include media("tablet", "sm-desktop", "desktop") {
+          margin-top: spacing(7);
+        }
+
+        ul {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          @include media("tablet", "sm-desktop", "desktop") {
+            flex-direction: row;
+          }
+
+          li {
+            margin: spacing(2) spacing(2) 0;
+            color: inherit;
+            font: 700 16px/26px $fontSecondary;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+
+            a {
+              color: inherit;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .background {
+    @mixin backgroundPosition() {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    @include backgroundPosition();
+    .wave_white {
+      position: relative;
+      z-index: 1;
+      bottom: 1px;
+    }
+    .wave_blue {
+      @include backgroundPosition();
+    }
+  }
+}
