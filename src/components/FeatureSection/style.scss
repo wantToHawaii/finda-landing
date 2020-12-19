@@ -1,0 +1,195 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+.feature_section {
+  padding-top: spacing(7);
+  padding-bottom: spacing(7);
+
+  @include media("tablet", "sm-desktop", "desktop") {
+    padding-top: spacing(9);
+    padding-bottom: spacing(9);
+  }
+
+  .container {
+    padding-left: spacing(2);
+    padding-right: spacing(2);
+
+    @include media("tablet", "sm-desktop", "desktop") {
+      max-width: $maxContentWidth;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    .row {
+      margin-left: spacing(-2);
+      margin-right: spacing(-2);
+
+      .content {
+        padding-left: spacing(2);
+        padding-right: spacing(2);
+
+        @include media("tablet", "sm-desktop", "desktop") {
+          display: flex;
+          align-items: center;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+
+          &.content_reverse {
+            flex-direction: row;
+          }
+        }
+
+        .text {
+          @include media("tablet", "sm-desktop", "desktop") {
+            flex: 0 0 60%;
+            max-width: 592px;
+          }
+
+          .emoji {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            img {
+              max-width: 40px;
+
+              @include media("tablet", "sm-desktop", "desktop") {
+                max-width: 64px;
+              }
+
+              & + img {
+                margin-left: spacing(3);
+
+                @include media("tablet", "sm-desktop", "desktop") {
+                  margin-left: spacing(5);
+                }
+              }
+            }
+          }
+
+          .title {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 42px;
+            margin: spacing(3) 0 0 0;
+
+            @include media("tablet", "sm-desktop", "desktop") {
+              font-size: 56px;
+              line-height: 66px;
+              margin: spacing(4) 0 0 0;
+            }
+
+            span {
+              color: $colorPrimary;
+            }
+          }
+
+          .subtitle {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 26px;
+            margin: spacing(3) 0 0 0;
+
+            @include media("tablet", "sm-desktop", "desktop") {
+              font-size: 20px;
+              line-height: 32px;
+              margin: spacing(4) 0 0 0;
+            }
+
+            span {
+              color: $colorPrimary;
+            }
+          }
+        }
+
+        .image {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-left: spacing(2);
+          padding-right: spacing(2);
+          margin-top: spacing(5);
+          position: relative;
+
+          @include media("tablet", "sm-desktop", "desktop") {
+            margin-top: 0;
+            flex: 0 0 40%;
+            max-width: 40%;
+          }
+
+          .iphone_mockup_container {
+            position: relative;
+            max-width: 185px;
+
+            @include media("tablet", "sm-desktop", "desktop") {
+              max-width: 100%;
+            }
+
+            &:after {
+              background-color: #00a7f7;
+              border-radius: 50%;
+              content: "";
+              opacity: 0.1;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              margin: auto;
+              height: 288px;
+              width: 288px;
+              transform: translate(-50%, -50%);
+              z-index: 1;
+
+              @include media("tablet", "sm-desktop", "desktop") {
+                height: 488px;
+                width: 488px;
+              }
+            }
+
+            .iphone_mockup {
+              position: relative;
+              max-width: 100%;
+              z-index: 1;
+            }
+
+            .iphone_mockup_toolbar {
+              position: absolute;
+              top: 12px;
+              left: 0;
+              right: 0;
+              margin: 0 auto;
+              z-index: 3;
+              max-width: 50%;
+
+              @include media("tablet", "sm-desktop", "desktop") {
+                top: 16px;
+              }
+            }
+
+            .iphone_animation {
+              position: absolute;
+              top: 0;
+              left: 0;
+              max-width: 100%;
+              padding: 13px;
+              z-index: 2;
+
+              @include media("tablet", "sm-desktop", "desktop") {
+                padding: 20px;
+              }
+
+              img {
+                border-radius: 12px;
+                max-width: 100%;
+
+                @include media("tablet", "sm-desktop", "desktop") {
+                  border-radius: 28px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
