@@ -1,0 +1,15 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+.button {
+  background-color: $colorSecondary;
+  border-radius: spacing(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px spacing(1);
+
+  img {
+    max-height: spacing(4);
+  }
+}
