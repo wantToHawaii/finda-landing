@@ -4,6 +4,7 @@ import style from "./style";
 import findaLogo from "../../assets/images/logo-finda.svg";
 import iconAppStore from "../../assets/images/icon-apple.svg";
 import iconGooglePlay from "../../assets/images/icon-android.svg";
+import imageIphone from "../../assets/images/hero-iphone.png";
 import Button from "../../components/Button/Button";
 import imagePicnic from "../../assets/images/hero-image-picnic.png";
 
@@ -14,22 +15,24 @@ const Home = () => {
     <main class={style.home}>
       <section class={style.section_hero}>
         <div class={style.container}>
-          <div class={style.logo_container}>
-            <img src={findaLogo} alt="Finda" />
-          </div>
-
           <div class={style.row}>
             <div class={style.content}>
+              <div class={style.logo_container}>
+                <img src={findaLogo} alt="Finda" />
+              </div>
+
               <h1 class={style.title}>
                 <span>Finda</span>
                 <small>more than a social app</small>
               </h1>
+
               <p class={style.subtitle}>
                 Create meaningful connections by <span>finding</span> people
                 based on
                 <strong> languages, interests,</strong> and{" "}
                 <strong>nationalities.</strong>
               </p>
+
               <div class={style.actions}>
                 <Button
                   className={style.button}
@@ -48,7 +51,9 @@ const Home = () => {
               </div>
             </div>
 
-            <div class={style.content_image}>content image</div>
+            <div class={style.content_image}>
+              <img src={imageIphone} alt="Iphone" />
+            </div>
           </div>
         </div>
 
