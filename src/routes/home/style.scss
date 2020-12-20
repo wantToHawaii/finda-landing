@@ -16,3 +16,8 @@
   margin-top: spacing(4);
   margin-bottom: spacing(4);
 }
+
+.button {
+  position: relative;
+  z-index: 1005;
+}

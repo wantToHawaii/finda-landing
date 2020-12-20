@@ -8,7 +8,6 @@ const formatString = (s) => {
     .map((w) => {
       if (w.includes("**")) {
         const newWord = w.split("**").join("");
-        console.log(newWord);
         return `<strong>${newWord}</strong>`;
       }
       return w;
