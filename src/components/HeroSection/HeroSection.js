@@ -1,3 +1,4 @@
+import { useSpring } from "react-spring";
 import findaLogo from "../../assets/images/logo-finda.svg";
 import iconAppStore from "../../assets/images/icon-apple.svg";
 import iconGooglePlay from "../../assets/images/icon-android.svg";
@@ -5,6 +6,9 @@ import imageIphone from "../../assets/images/hero-iphone.png";
 import Button from "../../components/Button/Button";
 import imagePicnic from "../../assets/images/hero-image-picnic.png";
 import style from "./style";
+import AnimatedBackground from "./AnimatedBackground";
+
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 
 const HeroSection = ({
   Description = "",
@@ -12,8 +16,16 @@ const HeroSection = ({
   Apple_Store_Link = "",
   Play_Market_link = "",
 }) => {
+  const [props, set] = useSpring(() => ({
+    xy: [0, 0],
+    config: { mass: 20, tension: 55, friction: 14 },
+  }));
+
   return (
-    <section class={style.section_hero}>
+    <section
+      class={style.section_hero}
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+    >
       <div class={style.container}>
         <div class={style.row}>
           <div class={style.content}>
@@ -78,6 +90,8 @@ const HeroSection = ({
           />
         </svg>
       </div>
+
+      <AnimatedBackground spring={{ ...props, set }} />
     </section>
   );
 };

@@ -36,8 +36,6 @@ const Home = () => {
         />
       )}
 
-      <PageSpinner loading={pageLoading} />
-
       <main class={`${style.home} ${pageLoading ? style.home_loading : ""}`}>
         <HeroSection {...defaultData} />
         <div class={style.features_container}>
@@ -50,6 +48,8 @@ const Home = () => {
         </div>
         <Footer {...defaultData} />
       </main>
+
+      <PageSpinner loading={pageLoading} />
     </>
   );
 };
