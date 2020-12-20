@@ -2,23 +2,72 @@
 @import "../../style/mixins";
 
 .feature_section {
-  padding-top: spacing(7);
-  padding-bottom: spacing(7);
+  &.background_1 {
+    background: none;
 
-  @include media("tablet", "sm-desktop", "desktop") {
-    padding-top: spacing(9);
-    padding-bottom: spacing(9);
+    @include media("tablet", "sm-desktop", "desktop") {
+      background: top left -80px / 224px 224px url("../../assets/images/feature-section-bg-circle.svg");
+      background-repeat: no-repeat;
+    }
+  }
+
+  &.background_2 {
+    background: bottom right -140px / 280px 280px url("../../assets/images/feature-section-bg-circle.svg");
+    background-repeat: no-repeat;
+
+    @include media("tablet", "sm-desktop", "desktop") {
+      background: bottom right -40px / 320px 320px url("../../assets/images/feature-section-bg-circle.svg");
+      background-repeat: no-repeat;
+    }
   }
 
   .container {
     padding-left: spacing(2);
     padding-right: spacing(2);
+    padding-top: spacing(7);
+    padding-bottom: spacing(7);
 
     @include media("tablet", "sm-desktop", "desktop") {
       max-width: $maxContentWidth;
       margin-left: auto;
       margin-right: auto;
       width: 100%;
+      padding-top: spacing(9);
+      padding-bottom: spacing(9);
+    }
+
+    &.background_1 {
+      background: top 100px right -200px / 320px 320px url("../../assets/images/feature-section-bg-circle.svg"),
+        top 300px left -48px / 192px 192px url("../../assets/images/feature-section-bg-circle.svg");
+      background-repeat: no-repeat;
+
+      @include media("tablet", "sm-desktop", "desktop") {
+        background: top 480px left 64px / 192px 192px
+            url("../../assets/images/feature-section-bg-circle.svg"),
+          bottom right 400px / 320px 320px
+            url("../../assets/images/feature-section-bg-circle.svg");
+        background-repeat: no-repeat;
+      }
+    }
+
+    &.background_2 {
+      background: top right 32px / 80px 80px
+          url("../../assets/images/feature-section-bg-circle.svg"),
+        bottom 400px right 16px / 160px 160px
+          url("../../assets/images/feature-section-bg-circle.svg"),
+        bottom left 96px / 48px 48px
+          url("../../assets/images/feature-section-bg-circle.svg");
+      background-repeat: no-repeat;
+
+      @include media("tablet", "sm-desktop", "desktop") {
+        background: top left 340px / 120px 120px
+            url("../../assets/images/feature-section-bg-circle.svg"),
+          top 140px right 180px / 224px 224px
+            url("../../assets/images/feature-section-bg-circle.svg"),
+          bottom left 600px / 72px 72px
+            url("../../assets/images/feature-section-bg-circle.svg");
+        background-repeat: no-repeat;
+      }
     }
 
     .row {

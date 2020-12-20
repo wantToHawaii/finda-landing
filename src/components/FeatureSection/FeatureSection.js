@@ -11,10 +11,11 @@ const emoji = [emojiBall, emojiController, emojiMasks];
 
 const FeatureSection = ({ swapContentSides }) => {
   const reverseContent = swapContentSides ? style.content_reverse : "";
+  const bgVariant = swapContentSides ? style.background_1 : style.background_2;
 
   return (
-    <section class={style.feature_section}>
-      <div class={style.container}>
+    <section class={`${style.feature_section} ${bgVariant}`}>
+      <div class={`${style.container} ${bgVariant}`}>
         <div class={style.row}>
           <div class={`${style.content} ${reverseContent}`}>
             <div class={style.text}>
