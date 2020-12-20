@@ -41,9 +41,8 @@ function checkStatus(response) {
  *
  * @return {object}           The response data
  */
-const API_URL = "http://localhost:1337/graphql";
 export default function request(query, options = {}) {
-  return fetch(API_URL, {
+  return fetch(`${process.env.PREACT_APP_API_URL}/graphql`, {
     ...options,
     method: "POST",
     body: JSON.stringify({ query }),

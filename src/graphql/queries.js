@@ -17,3 +17,19 @@ export const DefaultQuery = `
     }
   }
 `;
+
+export const FeaturesQuery = `
+  query {
+    features {
+      Title
+      Description
+      Video{
+        url
+      }
+      Emoji
+      {
+        url
+      }
+    }
+  }
+`;

@@ -2,16 +2,36 @@ import style from "./style";
 import iphoneMockup from "../../assets/images/mockup-iphone.png";
 import iphoneMockupToolbar from "../../assets/images/mockup-iphone-toolbar.png";
 
-import emojiBall from "../../assets/images/mocks/icon-emoji-ball.png";
-import emojiController from "../../assets/images/mocks/icon-emoji-controller.png";
-import emojiMasks from "../../assets/images/mocks/icon-emoji-masks.png";
-import iphoneAnimation from "../../assets/images/mocks/iphone-animation.gif";
+const formatString = (s) => {
+  return s
+    .split(" ")
+    .map((w) => {
+      if (w.includes("**")) {
+        const newWord = w.split("**").join("");
+        console.log(newWord);
+        return `<strong>${newWord}</strong>`;
+      }
+      return w;
+    })
+    .join(" ");
+};
 
-const emoji = [emojiBall, emojiController, emojiMasks];
-
-const FeatureSection = ({ swapContentSides }) => {
+const FeatureSection = ({
+  Title = "",
+  Description = "",
+  Video = {},
+  Emoji = [],
+  swapContentSides,
+}) => {
   const reverseContent = swapContentSides ? style.content_reverse : "";
   const bgVariant = swapContentSides ? style.background_1 : style.background_2;
+
+  const formattedTitle = formatString(Title);
+  const formattedDescription = formatString(Description);
+  const videoUrl = `${process.env.PREACT_APP_API_URL}${Video?.url}` ?? "";
+  const emoji = Emoji.map(
+    (item) => `${process.env.PREACT_APP_API_URL}${item.url}`
+  );
 
   return (
     <section class={`${style.feature_section} ${bgVariant}`}>
@@ -24,16 +44,14 @@ const FeatureSection = ({ swapContentSides }) => {
                   <img src={src} />
                 ))}
               </div>
-              <h2 class={style.title}>
-                <span>Find</span> new friends based on interests
-              </h2>
-              <p class={style.subtitle}>
-                This is Anna, she loves to play tennis, but she could not{" "}
-                <span>find</span> friends who share the same interest. By using{" "}
-                <span>Finda</span> Anna discovered that there are a lot of
-                interesting people in her neighbourhood, who would join her at
-                the tennis court!
-              </p>
+              <h2
+                class={style.title}
+                dangerouslySetInnerHTML={{ __html: formattedTitle }}
+              />
+              <p
+                class={style.subtitle}
+                dangerouslySetInnerHTML={{ __html: formattedDescription }}
+              />
             </div>
 
             <div class={style.image}>
@@ -44,7 +62,7 @@ const FeatureSection = ({ swapContentSides }) => {
                   src={iphoneMockupToolbar}
                 />
                 <div class={style.iphone_animation}>
-                  <img src={iphoneAnimation} />
+                  <img src={videoUrl} />
                 </div>
               </div>
             </div>

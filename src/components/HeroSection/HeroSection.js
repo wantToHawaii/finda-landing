@@ -6,7 +6,12 @@ import Button from "../../components/Button/Button";
 import imagePicnic from "../../assets/images/hero-image-picnic.png";
 import style from "./style";
 
-const HeroSection = () => {
+const HeroSection = ({
+  Description = "",
+  Slogan = "",
+  Apple_Store_Link = "",
+  Play_Market_link = "",
+}) => {
   return (
     <section class={style.section_hero}>
       <div class={style.container}>
@@ -18,27 +23,22 @@ const HeroSection = () => {
 
             <h1 class={style.title}>
               <span>Finda</span>
-              <small>more than a social app</small>
+              <small>{Slogan}</small>
             </h1>
 
-            <p class={style.subtitle}>
-              Create meaningful connections by <span>finding</span> people based
-              on
-              <strong> languages, interests,</strong> and{" "}
-              <strong>nationalities.</strong>
-            </p>
+            <p class={style.subtitle}>{Description}</p>
 
             <div class={style.actions}>
               <Button
                 className={style.button}
-                href="https://apps.apple.com/us/app/finda-me/id1450441578?ls=1"
+                href={Apple_Store_Link}
                 target="blank"
                 title="Finda on App Store"
                 icon={iconAppStore}
               />
               <Button
                 className={style.button}
-                href="https://play.google.com/store/apps/details?id=com.pureagency.finda&hl=en"
+                href={Play_Market_link}
                 target="blank"
                 title="Finda on Google Play"
                 icon={iconGooglePlay}

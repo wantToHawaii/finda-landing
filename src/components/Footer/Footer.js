@@ -8,27 +8,33 @@ import iconFacebook from "../../assets/images/icon-facebook.svg";
 import Button from "../Button/Button";
 import DynamicTitle from "./DynamicTitle";
 
-const socials = [
-  {
-    icon: iconInstagram,
-    link: "https://www.instagram.com/finda_app/",
-  },
-  {
-    icon: iconYoutube,
-    link: "https://www.youtube.com/channel/UCsg3gQzNAAZyoWrtDxEivWw",
-  },
-  {
-    icon: iconTweeter,
-    link: "https://twitter.com/Findaapp",
-  },
-  {
-    icon: iconFacebook,
-    link: "https://www.facebook.com/findaapp",
-  },
-];
-
-const Footer = () => {
+const Footer = ({
+  Instagram = "",
+  Youtube = "",
+  Twitter = "",
+  Facebook = "",
+  Help_And_Support = "",
+  Privacy = "",
+}) => {
   const currentYear = new Date().getFullYear();
+  const socials = [
+    {
+      icon: iconInstagram,
+      link: Instagram,
+    },
+    {
+      icon: iconYoutube,
+      link: Youtube,
+    },
+    {
+      icon: iconTweeter,
+      link: Twitter,
+    },
+    {
+      icon: iconFacebook,
+      link: Facebook,
+    },
+  ];
   return (
     <footer class={style.footer}>
       <div class={style.background}>
@@ -91,10 +97,10 @@ const Footer = () => {
                 <a href="mailto:info@finda.me">mailto:info@finda.me</a>
               </li>
               <li>
-                <a href="mailto:info@finda.me">Help and Support</a>
+                <a href={Help_And_Support}>Help and Support</a>
               </li>
               <li>
-                <a href="https://api.finda.me//api/terms/" target="blank">
+                <a href={Privacy} target="blank">
                   Privacy
                 </a>
               </li>
