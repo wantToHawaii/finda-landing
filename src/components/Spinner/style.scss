@@ -17,10 +17,12 @@
 
 .overlay_fade_in {
   opacity: 1;
+  visibility: visible;
 }
 
 .overlay_fade_out {
   opacity: 0;
+  visibility: hidden;
 }
 
 .loader {

@@ -47,6 +47,11 @@
         transition: all 150ms;
         width: 330px;
 
+        @media (max-width: 320px) {
+          text-align: center;
+          width: auto;
+        }
+
         @include media("tablet", "sm-desktop", "desktop") {
           font-size: 72px;
           line-height: 82px;
